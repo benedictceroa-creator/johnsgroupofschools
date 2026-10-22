@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1X57SPZ38"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G1X57SPZ38');
+  </script>
   <title>John's Academy | Nursery &amp; Primary School in Medchal, Hyderabad | Admissions Open</title>
   <meta name="description" content="John's Academy, Medchal — nurturing Nursery, LKG, UKG &amp; primary school for young learners near Medchal, Kompally, Dundigal &amp; Suraram. SSC education from Nursery to Grade 10. Admissions open — call +91 90308 69502." />
   <meta name="keywords" content="nursery school Medchal, KG school near Medchal, best school for young children Medchal, school admissions Medchal 2026, preschool Medchal Hyderabad, Grade 1 admission Medchal, primary school near Medchal, school near Kompally, school near Dundigal, school near Suraram, SSC school Hyderabad, John's Academy Medchal, Telugu medium school Medchal, nursery school near me Hyderabad" />
@@ -2010,6 +2019,11 @@
       });
 
       if (res.ok) {
+        gtag('event', 'generate_lead', {
+          lead_source: 'enquiry_form',
+          child_class: this.childClass.value,
+          campus: this.campus.value
+        });
         document.getElementById('form-body').style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
         document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -2025,6 +2039,18 @@
       btn.disabled = false;
       alert('Network error. Please call us on +91 90308 69502 or try again.');
     }
+  });
+
+  /* ===== ANALYTICS: CONTACT CLICKS ===== */
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    let name;
+    if (href.startsWith('tel:')) name = 'click_call';
+    else if (href.startsWith('https://wa.me')) name = 'click_whatsapp';
+    else if (href.startsWith('mailto:')) name = 'click_email';
+    if (name) gtag('event', name, { link_location: link.closest('section, footer, header')?.id || 'page' });
   });
 
   /* ===== GALLERY LIGHTBOX ===== */
