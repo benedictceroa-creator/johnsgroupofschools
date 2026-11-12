@@ -147,6 +147,10 @@ ul { list-style: none; }
   transition: var(--transition);
 }
 .nav-links a:hover { color: var(--navy); background: var(--off-white); }
+.nav-links a { white-space: nowrap; }
+@media (min-width: 900px) and (max-width: 1179px) {
+  .nav-links a { padding: 8px 8px; font-size: 0.8rem; }
+}
 
 .nav-end { display: flex; align-items: center; gap: 10px; }
 
