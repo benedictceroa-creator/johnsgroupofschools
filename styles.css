@@ -1067,3 +1067,85 @@ ul { list-style: none; }
   font-style: italic;
   color: var(--gold-light);
 }
+
+/* ===== NOTICE BOARD ===== */
+.notice-section { background: var(--off-white); padding: 56px 0 0; }
+.notice-board {
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  border-top: 5px solid var(--gold);
+  box-shadow: var(--shadow-md);
+  padding: 28px 24px;
+}
+.notice-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.notice-head .section-label { margin-bottom: 6px; }
+.notice-pin { font-size: 2rem; line-height: 1; }
+.notice-title { font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 800; color: var(--navy-dark); line-height: 1.2; }
+.notice-list { display: grid; gap: 12px; }
+.notice-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid var(--light-grey);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.notice-item[hidden] { display: none; }
+.notice-item:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); }
+.notice-date {
+  flex: 0 0 auto;
+  width: 78px;
+  text-align: center;
+  background: var(--navy-dark);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 8px 4px;
+  line-height: 1.15;
+}
+.nd-day { display: block; font-size: 1.6rem; font-weight: 800; color: var(--gold); }
+.nd-mon { display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.notice-body h3 { font-size: 1.02rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 2px; }
+.notice-body p { font-size: 0.85rem; color: var(--text-grey); line-height: 1.55; }
+.notice-empty { font-size: 0.9rem; color: var(--text-grey); }
+@media (max-width: 480px) {
+  .notice-board { padding: 22px 16px; }
+  .notice-item { gap: 12px; padding: 12px; }
+  .notice-date { width: 66px; }
+  .nd-day { font-size: 1.35rem; }
+}
+
+/* ===== CAMPUS TOUR (drone video + track photos) ===== */
+.aerial-section { background: var(--white); }
+.aerial-frame {
+  position: relative;
+  max-width: 960px;
+  margin: 36px auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--navy-dark);
+  aspect-ratio: 16 / 9;
+}
+.aerial-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.aerial-toggle {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15,35,71,0.75);
+  color: var(--white);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.aerial-toggle:hover,
+.aerial-toggle:focus-visible { background: var(--gold); color: var(--navy-dark); }
+@media (max-width: 480px) {
+  .aerial-toggle { right: 0.6rem; bottom: 0.6rem; width: 38px; height: 38px; }
+}

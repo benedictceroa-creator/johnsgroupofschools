@@ -157,3 +157,44 @@ if (lightbox) {
     });
   });
 }
+
+/* ===== NOTICE BOARD: hide events whose date has passed ===== */
+const noticeItems = document.querySelectorAll('.notice-item[data-date]');
+if (noticeItems.length) {
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  let shown = 0;
+  noticeItems.forEach(li => {
+    if (li.dataset.date < today) li.hidden = true; else shown++;
+  });
+  const empty = document.querySelector('.notice-empty');
+  if (empty && !shown) empty.hidden = false;
+}
+
+/* ===== CAMPUS DRONE VIDEO =====
+   Fetch only when scrolled near, pause when off-screen. Reduced-motion or
+   data-saver visitors get the poster and a play button instead. */
+(() => {
+  const v = document.getElementById('aerial-video');
+  const btn = document.getElementById('aerial-toggle');
+  if (!v || !btn) return;
+  const s = v.querySelector('source[data-src]');
+  let loaded = false, userPaused = false;
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    (navigator.connection && navigator.connection.saveData);
+
+  const load = () => { if (!loaded) { s.src = s.dataset.src; v.load(); loaded = true; } };
+  const play = () => { load(); const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  v.addEventListener('play', () => { btn.textContent = '❚❚'; btn.setAttribute('aria-label', 'Pause video'); });
+  v.addEventListener('pause', () => { btn.textContent = '▶'; btn.setAttribute('aria-label', 'Play video'); });
+  btn.addEventListener('click', () => {
+    if (v.paused) { userPaused = false; play(); } else { userPaused = true; v.pause(); }
+  });
+
+  if (calm || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { if (!userPaused) play(); } else if (loaded) { v.pause(); }
+    });
+  }, { rootMargin: '200px 0px' }).observe(v);
+})();

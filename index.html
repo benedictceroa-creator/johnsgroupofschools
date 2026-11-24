@@ -295,6 +295,7 @@
   <a href="nursery-lkg-ukg-medchal/" class="mobile-nav-link">Nursery &amp; KG</a>
   <a href="#campuses" class="mobile-nav-link">Campuses</a>
   <a href="#gallery" class="mobile-nav-link">Gallery</a>
+  <a href="#notices" class="mobile-nav-link">Upcoming Events</a>
   <a href="career-compass/" class="mobile-nav-link">Career Compass</a>
   <a href="#admissions" class="mobile-nav-link">Admissions</a>
   <div class="mobile-nav-cta">
@@ -357,6 +358,43 @@
     </div>
   </div>
 </div>
+
+<!-- NOTICE BOARD — add events as <li class="notice-item" data-date="YYYY-MM-DD">.
+     Past events hide themselves automatically (see main.js). -->
+<section class="notice-section" id="notices" aria-labelledby="notice-title">
+  <div class="container">
+    <div class="notice-board fade-up">
+      <div class="notice-head">
+        <span class="notice-pin" aria-hidden="true">📌</span>
+        <div>
+          <div class="section-label">Notice Board</div>
+          <h2 class="notice-title" id="notice-title">Upcoming Key Events</h2>
+        </div>
+      </div>
+      <ul class="notice-list">
+        <li class="notice-item" data-date="2027-01-08">
+          <time class="notice-date" datetime="2027-01-08">
+            <span class="nd-day">08</span><span class="nd-mon">Jan 2027</span>
+          </time>
+          <div class="notice-body">
+            <h3>Annual Day</h3>
+            <p>Friday · Our yearly celebration of student talent, with performances, prizes and families joining in.</p>
+          </div>
+        </li>
+        <li class="notice-item" data-date="2027-01-26">
+          <time class="notice-date" datetime="2027-01-26">
+            <span class="nd-day">26</span><span class="nd-mon">Jan 2027</span>
+          </time>
+          <div class="notice-body">
+            <h3>Republic Day Celebration</h3>
+            <p>Tuesday · Flag hoisting, march past and cultural programme to mark Republic Day.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="notice-empty" hidden>No upcoming events right now. Please check back soon.</p>
+    </div>
+  </div>
+</section>
 
 <!-- WHY CHOOSE US -->
 <section class="why-section section-pad" id="why">
@@ -581,6 +619,24 @@
   </div>
 </section>
 
+<!-- CAMPUS FROM ABOVE (Ramanthapur – Chegunta) -->
+<section class="aerial-section section-pad" id="campus-tour">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Campus Tour</div>
+      <h2 class="section-title">The Ramanthapur – Chegunta Campus from Above</h2>
+      <p class="section-sub">Drone footage of our campus near Chegunta: school buildings, open grounds, the athletics track and the covered spectator stand.</p>
+    </div>
+    <div class="aerial-frame fade-up">
+      <video class="aerial-video" id="aerial-video" muted loop playsinline preload="none"
+        poster="Images/web/chegunta-campus-drone-poster.webp" width="854" height="480"
+        aria-label="Drone footage flying over the John's Academy Ramanthapur – Chegunta campus">
+        <source data-src="Images/web/chegunta-campus-drone.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="aerial-toggle" id="aerial-toggle" aria-label="Play video">▶</button>
+    </div>
+  </div>
+</section>
 
 <!-- VISIT MEDCHAL CAMPUS -->
 <section class="campuses-section" id="visit" style="padding-bottom:80px;">
@@ -671,6 +727,14 @@
       </div>
       <div class="g-item" onclick="openLb(this)" role="button" tabindex="0" aria-label="View happy students photo">
         <img src="Images/web/happy-students-together.webp" alt="Happy young John's Academy students smiling together" loading="lazy" />
+        <div class="g-hover">🔍</div>
+      </div>
+      <div class="g-item" onclick="openLb(this)" role="button" tabindex="0" aria-label="View athletics track photo">
+        <img src="Images/web/athletics-track-spectator-stand.webp" alt="Athletics track and covered spectator stand at the John's Academy Ramanthapur – Chegunta campus" loading="lazy" />
+        <div class="g-hover">🔍</div>
+      </div>
+      <div class="g-item" onclick="openLb(this)" role="button" tabindex="0" aria-label="View spectator stand at a school event">
+        <img src="Images/web/spectator-stand-school-event.webp" alt="Students and families filling the spectator stand beside the athletics track at a John's Academy event" loading="lazy" />
         <div class="g-hover">🔍</div>
       </div>
 
@@ -911,6 +975,8 @@
           <li><a href="#about">About Us</a></li>
           <li><a href="#academics">Academics</a></li>
           <li><a href="#campuses">Our Campuses</a></li>
+          <li><a href="#notices">Upcoming Events</a></li>
+          <li><a href="#campus-tour">Campus Tour</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="career-compass/">Career Compass</a></li>
           <li><a href="#faq">FAQs</a></li>
